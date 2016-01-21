@@ -27,7 +27,10 @@ class App extends React.Component {
         let {number} = this.props;
 
         return (
-            <div onClick={this.divClicked}>{number} lol</div>
+            <div>
+                {number} <br/>
+                <button onClick={this.divClicked}>lol</button>
+            </div>
         );
     }
 }
