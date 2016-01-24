@@ -3,7 +3,6 @@ var path = require('path');
 
 module.exports = {
     entry: [
-        'webpack-dev-server/client?http://0.0.0.0:8000',
         'webpack/hot/only-dev-server',
         './src/containers/index'
     ],
@@ -13,14 +12,13 @@ module.exports = {
         publicPath: '/static/'
     },
 
-    /*devServer: {
+    devServer: {
         historyApiFallback: true,
         hot: true,
         inline: true,
         progress: true,
-
         stats: 'errors-only'
-    },*/
+    },
 
     plugins: [
         new webpack.HotModuleReplacementPlugin()

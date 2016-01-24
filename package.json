@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "start": "http-server"
+    "start": "webpack-dev-server"
   },
   "dependencies": {
     "babel-loader": "^6.2.1",
