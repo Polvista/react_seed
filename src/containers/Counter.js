@@ -1,13 +1,11 @@
 import { Provider, connect } from 'react-redux';
 import React from 'react';
-import test from './../test';
 import AppActions from './../AppActions';
 
 class Counter extends React.Component {
     render() {
         let {number, dispatch} = this.props;
         let appActions = new AppActions(dispatch);
-        //console.log(test());
 
         return (
             <div>
