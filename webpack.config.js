@@ -31,6 +31,12 @@ module.exports = {
             test: /\.js$/,
             exclude: /node_modules/,
             loaders: ['react-hot', 'babel']
+        },{
+            test: /\.css$/,
+            loader: 'style!css'
+        }, {
+            test   : /\.(ttf|eot|svg|woff(2)?)(\?[a-z0-9]+)?$/,
+            loader : 'file-loader'
         }]
     }
 };
