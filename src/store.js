@@ -7,8 +7,9 @@ const isDev = true;
 
 const finalCreateStore = isDev
     ? compose(
-        DevTools.instrument(),
-        persistState(getDebugSessionKey())
+        //DevTools.instrument(),
+        //persistState(getDebugSessionKey()),
+        window.devToolsExtension ? window.devToolsExtension() : f => f
       )(createStore)
     : createStore;
 
