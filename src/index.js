@@ -11,7 +11,6 @@ ReactDOM.render(
     <Provider store={configureStore()}>
         <div>
             <Counter />
-            {isDev ? <DevTools/> : '' }
         </div>
     </Provider>,
     document.getElementById('root')
