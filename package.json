@@ -9,10 +9,12 @@
     "babel-preset-stage-0": "^6.3.13",
     "css-loader": "^0.23.1",
     "file-loader": "^0.8.5",
+    "history": "^1.17.0",
     "path": "^0.12.7",
     "react": "^0.14.6",
     "react-dom": "^0.14.6",
     "react-redux": "^4.0.6",
+    "react-router": "^2.0.0-rc5",
     "redux": "^3.1.2",
     "style-loader": "^0.13.0",
     "webpack": "^1.12.12"
