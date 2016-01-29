@@ -3,26 +3,29 @@ import { persistState } from 'redux-devtools';
 import rootReducer from './reducers';
 import DevTools from './helpers/DevTools';
 
-const isDev = true;
-
-const finalCreateStore = isDev
-    ? compose(
-        //DevTools.instrument(),
-        //persistState(getDebugSessionKey()),
-        window.devToolsExtension ? window.devToolsExtension() : f => f
-      )(createStore)
-    : createStore;
-
-function getDebugSessionKey() {
+/*function getDebugSessionKey() {
     const matches = window.location.href.match(/[?&]debug_session=([^&]+)\b/);
     return (matches && matches.length > 0)? matches[1] : null;
-}
+}*/
+
+const isDev = true;
 
 export default function configureStore(initialState) {
-    const store = finalCreateStore(rootReducer, initialState);
+    const storeEnchantments = isDev ?
+        compose(
+            //DevTools.instrument(),
+            //persistState(getDebugSessionKey()),
+            window.devToolsExtension ? window.devToolsExtension() : f => f
+        ) :
+        undefined;
+
+    const store = createStore(
+        rootReducer,
+        initialState,
+        storeEnchantments
+    );
 
     if (module.hot) {
-        // Enable Webpack hot module replacement for reducers
         module.hot.accept('./reducers', () => {
             const newRootReducer = require('./reducers').default;
             store.replaceReducer(newRootReducer);
