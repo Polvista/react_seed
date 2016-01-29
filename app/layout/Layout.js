@@ -1,10 +1,11 @@
 import React from 'react';
+import { Link } from 'react-router';
 
-export default class App extends React.Component {
+
+export default class Layout extends React.Component {
     render() {
         return (
             <div>
-                <h5>Welcome to app</h5>
                 {this.props.children}
             </div>
         );
