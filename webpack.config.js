@@ -6,10 +6,11 @@ module.exports = {
         'webpack/hot/only-dev-server',
         './app/index'
     ],
+
     output: {
-        path: path.join(__dirname, 'build'),
+        path: path.join(__dirname, 'public/build'),
         filename: 'bundle.js',
-        publicPath: '/static/'
+        publicPath: 'build'
     },
 
     devServer: {
@@ -17,14 +18,18 @@ module.exports = {
         hot: true,
         inline: true,
         progress: true,
-        stats: 'errors-only'
+        stats: 'errors-only',
+
+        proxy: {
+            '*': 'http://localhost:9090'
+        }
     },
 
     plugins: [
         new webpack.HotModuleReplacementPlugin()
     ],
 
-    devtool: 'eval-source-map',
+    /*devtool: 'eval-source-map',*/
 
     module: {
         loaders: [{
@@ -35,7 +40,7 @@ module.exports = {
             test: /\.css$/,
             loader: 'style!css'
         }, {
-            test   : /\.(ttf|eot|svg|woff(2)?)(\?[a-z0-9]+)?$/,
+            test   : /\.(ttf|eot|svg|woff(2)?)(\?[a-z0-9]+)?$|index.html/,
             loader : 'file-loader'
         }]
     }
