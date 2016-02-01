@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function Page404() {
+export default () => {
     return (
         <div>
             <h3>404</h3>
