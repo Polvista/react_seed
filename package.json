@@ -1,5 +1,6 @@
 {
   "scripts": {
+    "dev": "node server/server.js & webpack-dev-server",
     "start": "webpack-dev-server",
     "server": "node server/server.js"
   },
