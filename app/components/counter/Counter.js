@@ -4,6 +4,7 @@ import { Provider, connect } from 'react-redux';
 import React from 'react';
 import { Link } from 'react-router';
 import CounterActions from './counterActions';
+import FastLink from './../common/FastLink';
 
 class Counter extends React.Component {
     render() {
@@ -19,7 +20,7 @@ class Counter extends React.Component {
                 <a onClick={counterActions.reset} className="btn btn-default">reset</a>
                 <a onClick={() => counterActions.setValue(20)} className="btn btn-default">set 20</a>
                 <br/>
-                <Link className="home-link" to="/home">To Home</Link>
+                <FastLink className="home-link" to="/home">To Home fast</FastLink>
             </div>
         );
     }

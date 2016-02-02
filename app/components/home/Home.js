@@ -1,13 +1,12 @@
 import React from 'react';
-import { Link } from 'react-router';
-
+import FastLink from '../common/FastLink';
 
 export default class Home extends React.Component {
     render() {
         return (
             <div>
                 <h3>Hello</h3>
-                <span><Link to="/">To counter</Link></span>
+                <span><FastLink to="/">To counter</FastLink></span>
             </div>
         );
     }
