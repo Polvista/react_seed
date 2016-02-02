@@ -22,7 +22,8 @@ export default function configureStore(initialState) {
             window.devToolsExtension ? window.devToolsExtension() : f => f
         ) :
         compose(
-            applyMiddleware(reduxRouterMiddleware)
+            applyMiddleware(reduxRouterMiddleware),
+            window.devToolsExtension ? window.devToolsExtension() : f => f
         );
 
     const store = createStore(

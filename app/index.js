@@ -8,8 +8,6 @@ import configureStore from './store';
 import DevTools from './helpers/DevTools';
 import routes from './routes';
 
-const isDev = true;
-
 ReactDOM.render(
     <Provider store={configureStore()}>
         <div>
