@@ -13,7 +13,7 @@ const isDev = true;
 ReactDOM.render(
     <Provider store={configureStore()}>
         <div>
-            <Router history={browserHistory}>{routes}</Router>
+            <Router history={browserHistory} routes={routes}/>
         </div>
     </Provider>,
     document.getElementById('root')
