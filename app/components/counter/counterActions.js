@@ -1,4 +1,4 @@
-import ActionCreator from './../helpers/ActionCreator';
+import ActionCreator from './../../helpers/ActionCreator';
 
 export default class CounterActions extends ActionCreator {
     constructor(dispatch) { super(dispatch); }

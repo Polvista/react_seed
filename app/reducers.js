@@ -1,4 +1,4 @@
-import counter from './counter/counterReducer';
+import counter from './components/counter/counterReducer';
 import {createStore, combineReducers} from 'redux';
 import { routeReducer } from 'react-router-redux'
 
