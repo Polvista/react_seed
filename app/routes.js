@@ -1,14 +1,15 @@
 import React from 'react';
 import { Route, IndexRoute } from 'react-router';
-import Counter from './counter/Counter';
 import Layout from './layout/Layout';
-import Home from './home/Home';
 import Page404 from './common/pages/404';
+
+const counterLoader = (location, callback) => require.ensure([], require => callback(null, require('./counter/Counter').default));
+const homeLoader = (location, callback) => require.ensure([], require => callback(null, require('./home/Home').default));
 
 let routes = (
     <Route path="/" component={Layout}>
-        <IndexRoute component={Counter} />
-        <Route path="home" component={Home}/>
+        <IndexRoute getComponent={counterLoader} />
+        <Route path="home" getComponent={homeLoader}/>
 
         <Route path="*" component={Page404} />
     </Route>

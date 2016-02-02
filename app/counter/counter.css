@@ -6,3 +6,8 @@
 .counter a {
 	margin-right: 5px;
 }
+
+.home-link {
+	margin-top: 20px;
+	display: block;
+}
