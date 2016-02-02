@@ -15,6 +15,7 @@ const config = process.env.NODE_ENV === 'production' ?
         },
 
         plugins: [
+            new webpack.optimize.CommonsChunkPlugin('app', null, false),        //add common classes in bundle
             new webpack.optimize.CommonsChunkPlugin('vendors', 'vendors.js'),
             new webpack.optimize.UglifyJsPlugin()
         ],
@@ -64,6 +65,7 @@ const config = process.env.NODE_ENV === 'production' ?
         },
 
         plugins: [
+            new webpack.optimize.CommonsChunkPlugin('app', null, false),
             new webpack.optimize.CommonsChunkPlugin('vendors', 'vendors.js'),
             new webpack.HotModuleReplacementPlugin()
         ],
