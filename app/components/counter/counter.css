@@ -11,3 +11,8 @@
 	margin-top: 20px;
 	display: block;
 }
+
+.lead {
+	position: relative;
+	display: inline-block;
+}
