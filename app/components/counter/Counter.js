@@ -7,7 +7,8 @@ import CounterActions from './counterActions';
 import FastLink from './../common/FastLink';
 import {Motion, spring, presets} from 'react-motion';
 
-class Counter extends React.Component {
+@connect(state => ({number: state.counter}))
+export default class Counter extends React.Component {
     constructor() {
         super();
         this.state = {top: 0, left: 0, scale: 1, btnScale: 1};
@@ -74,5 +75,3 @@ class Counter extends React.Component {
         );
     }
 }
-
-export default Counter = connect(state => ({number: state.counter}))(Counter);
