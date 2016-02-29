@@ -1,0 +1,28 @@
+.articles {
+	width: 500px;
+	margin: 120px auto;
+}
+
+article {
+	background: black;
+	color: white;
+	float: left;
+	margin-right: 8px;
+	margin-top: 8px;
+	padding: 4px 12px;
+	border-radius: 4px;
+}
+
+article.list {
+	width: 100%;
+	float: none;
+}
+
+.shuffle {
+	margin-bottom: 20px;
+}
+
+
+.shuffle a {
+	margin-right: 8px;
+}
