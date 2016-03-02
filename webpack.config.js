@@ -22,6 +22,9 @@ const config = process.env.NODE_ENV === 'production' ?
 
         module: {
             loaders: [{
+                test: /\.tsx?$/,
+                loaders: ['babel', 'ts']
+            },{
                 test: /\.js$/,
                 exclude: /node_modules/,
                 loaders: ['babel']
@@ -32,6 +35,10 @@ const config = process.env.NODE_ENV === 'production' ?
                 test   : /\.(ttf|eot|svg|woff(2)?)(\?[a-z0-9]+)?$|index.html/,
                 loader : 'file-loader'
             }]
+        },
+
+        resolve: {
+            extensions: ['', '.jsx', '.js', '.tsx', '.ts', '.css']
         }
     }
 
@@ -74,6 +81,9 @@ const config = process.env.NODE_ENV === 'production' ?
 
         module: {
             loaders: [{
+                test: /\.tsx?$/,
+                loaders: ['babel', 'ts']
+            },{
                 test: /\.js$/,
                 exclude: /node_modules/,
                 loaders: ['babel']
@@ -84,6 +94,10 @@ const config = process.env.NODE_ENV === 'production' ?
                 test   : /\.(ttf|eot|svg|woff(2)?)(\?[a-z0-9]+)?$|index.html/,
                 loader : 'file-loader'
             }]
+        },
+
+        resolve: {
+            extensions: ['', '.jsx', '.js', '.tsx', '.ts', '.css']
         }
     };
 

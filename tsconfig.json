@@ -1,0 +1,9 @@
+{
+  "compilerOptions": {
+    "target": "ES6",
+    "jsx": "preserve",
+    "noEmit": true,
+    "experimentalDecorators": true
+  },
+  "exclude": ["node_modules"]
+}
