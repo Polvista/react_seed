@@ -29,6 +29,9 @@ const config = process.env.NODE_ENV === 'production' ?
                 exclude: /node_modules/,
                 loaders: ['babel']
             },{
+                test: /\.scss$/,
+                loader: 'style!css!sass'
+            },{
                 test: /\.css$/,
                 loader: 'style!css'
             }, {
@@ -87,6 +90,9 @@ const config = process.env.NODE_ENV === 'production' ?
                 test: /\.js$/,
                 exclude: /node_modules/,
                 loaders: ['babel']
+            },{
+                test: /\.scss$/,
+                loader: 'style!css!sass'
             },{
                 test: /\.css$/,
                 loader: 'style!css'

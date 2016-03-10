@@ -11,11 +11,11 @@ article {
 	margin-top: 8px;
 	padding: 4px 12px;
 	border-radius: 4px;
-}
 
-article.list {
-	width: 100%;
-	float: none;
+	&.list {
+		width: 100%;
+		float: none;
+	}
 }
 
 .shuffle {

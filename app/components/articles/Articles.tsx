@@ -24,11 +24,11 @@ export class Articles extends React.Component<Props, State> {
                 </div>
                 <FlipMove staggerDelayBy={20}>
                     {this.props.articles.map(article =>
-                    <article key={article.id}
-                             className={LAYOUT[this.state.style].toLowerCase()}>
-                        {article.text}
-                    </article>
-                        )}
+                        <article key={article.id}
+                                 className={LAYOUT[this.state.style].toLowerCase()}>
+                            {article.text}
+                        </article>
+                    )}
                 </FlipMove>
             </div>
         );
