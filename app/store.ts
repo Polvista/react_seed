@@ -1,9 +1,6 @@
 import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
 import { persistState } from 'redux-devtools';
-import { syncHistory } from 'react-router-redux';
-import { browserHistory } from 'react-router';
 import rootReducer from './reducers';
-import DevTools from './helpers/DevTools';
 
 /*function getDebugSessionKey() {
     const matches = window.location.href.match(/[?&]debug_session=([^&]+)\b/);
@@ -12,27 +9,35 @@ import DevTools from './helpers/DevTools';
 
 const isDev = true;
 
-export default function configureStore(initialState) {
-    const reduxRouterMiddleware = syncHistory(browserHistory);
-    const storeEnchantments = isDev ?
+interface IHotModule {
+    hot?: { accept: (path: string, callback: () => void) => void };
+}
+declare const module: IHotModule;
+
+interface IWindow {
+    devToolsExtension?: () => any
+}
+
+declare const window: IWindow;
+
+export default function configureStore(initialState = {}) {
+    const storeEnchantments: Function = isDev ?
         compose(
             //DevTools.instrument(),
             //persistState(getDebugSessionKey()),
-            applyMiddleware(reduxRouterMiddleware),
-            window.devToolsExtension ? window.devToolsExtension() : f => f
+            //applyMiddleware(reduxRouterMiddleware),
+            //window.devToolsExtension ? window.devToolsExtension() : f => f
         ) :
         compose(
-            applyMiddleware(reduxRouterMiddleware),
-            window.devToolsExtension ? window.devToolsExtension() : f => f
+            //applyMiddleware(reduxRouterMiddleware),
+            //window.devToolsExtension ? window.devToolsExtension() : f => f
         );
 
     const store = createStore(
         rootReducer,
         initialState,
-        storeEnchantments
+        window.devToolsExtension ? window.devToolsExtension() : f => f
     );
-
-    reduxRouterMiddleware.listenForReplays(store);
 
     if (module.hot) {
         module.hot.accept('./reducers', () => {

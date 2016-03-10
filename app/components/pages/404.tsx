@@ -1,6 +1,6 @@
-import React from 'react';
+import * as React from 'react';
 
-export default () => {
+export const Page404 = () => {
     return (
         <div>
             <h3>404</h3>
