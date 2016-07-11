@@ -1,4 +1,4 @@
-import './counter.css';
+import './counter.scss';
 
 import { Provider, connect } from 'react-redux';
 import React from 'react';

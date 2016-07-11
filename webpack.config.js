@@ -1,110 +1,13 @@
-var webpack = require('webpack');
-var path = require('path');
-
-const config = process.env.NODE_ENV === 'production' ?
-    {
-        entry: {
-            app: './app/index',
-            vendors: ['react', 'react-dom', 'react-router', './lib/bootstrap/bootstrap.min.css', 'redux', 'react-redux', 'react-router-redux']
-        },
-
-        output: {
-            path: path.join(__dirname, 'public/build'),
-            filename: 'bundle.js',
-            publicPath: 'build/'
-        },
-
-        plugins: [
-            new webpack.optimize.CommonsChunkPlugin('app', null, false),        //add common classes in bundle
-            new webpack.optimize.CommonsChunkPlugin('vendors', 'vendors.js'),
-            new webpack.optimize.UglifyJsPlugin()
-        ],
-
-        module: {
-            loaders: [{
-                test: /\.tsx?$/,
-                loaders: ['babel', 'ts']
-            },{
-                test: /\.js$/,
-                exclude: /node_modules/,
-                loaders: ['babel']
-            },{
-                test: /\.scss$/,
-                loader: 'style!css!sass'
-            },{
-                test: /\.css$/,
-                loader: 'style!css'
-            }, {
-                test   : /\.(ttf|eot|svg|woff(2)?)(\?[a-z0-9]+)?$|index.html/,
-                loader : 'file-loader'
-            }]
-        },
-
-        resolve: {
-            extensions: ['', '.jsx', '.js', '.tsx', '.ts', '.css']
-        }
-    }
-
-    :
-
-    {
-        entry: {
-            app:[
-                'webpack/hot/only-dev-server',
-                './app/index'
-            ],
-            vendors: ['react', 'react-dom', 'react-router', './lib/bootstrap/bootstrap.min.css', 'redux', 'react-redux', 'react-router-redux']
-        },
-
-        output: {
-            path: path.join(__dirname, 'public/build'),
-            filename: 'bundle.js',
-            publicPath: 'build/'
-        },
-
-        devServer: {
-            historyApiFallback: true,
-            hot: true,
-            inline: true,
-            progress: true,
-            stats: 'errors-only',
-
-            proxy: {
-                '*': 'http://localhost:9090'
-            }
-        },
-
-        plugins: [
-            new webpack.optimize.CommonsChunkPlugin('app', null, false),
-            new webpack.optimize.CommonsChunkPlugin('vendors', 'vendors.js'),
-            new webpack.HotModuleReplacementPlugin()
-        ],
-
-        /*devtool: 'eval-source-map',*/
-
-        module: {
-            loaders: [{
-                test: /\.tsx?$/,
-                loaders: ['babel', 'ts']
-            },{
-                test: /\.js$/,
-                exclude: /node_modules/,
-                loaders: ['babel']
-            },{
-                test: /\.scss$/,
-                loader: 'style!css!sass'
-            },{
-                test: /\.css$/,
-                loader: 'style!css'
-            }, {
-                test   : /\.(ttf|eot|svg|woff(2)?)(\?[a-z0-9]+)?$|index.html/,
-                loader : 'file-loader'
-            }]
-        },
-
-        resolve: {
-            extensions: ['', '.jsx', '.js', '.tsx', '.ts', '.css']
-        }
-    };
-
-module.exports = config;
+switch (process.env.NODE_ENV) {
+    case 'server':
+        module.exports = require('./config/webpack.server');
+        break;
+    case 'prod':
+    case 'production':
+        module.exports = require('./config/webpack.prod');
+        break;
+    case 'dev':
+    case 'development':
+    default:
+        module.exports = require('./config/webpack.dev');
+}

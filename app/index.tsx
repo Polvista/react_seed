@@ -1,6 +1,7 @@
 /// <reference path="../typings/tsd.d.ts" />
+/// <reference path="../typings/custom.d.ts" />
 
-import '../lib/bootstrap/bootstrap.min.css';
+//import '../lib/bootstrap/bootstrap.min.css';
 
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
