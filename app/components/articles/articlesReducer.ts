@@ -1,7 +1,6 @@
 import {Article} from "./models";
 import {ReducerHelper} from "../../helpers/ReducerHelper";
 import {ArticlesActions} from "./ArticlesActions";
-import {ArticlesAction} from "./ArticlesActions";
 
 const initialState: Article[] = [
     {id: 1, text: 'Netscape 2.0 ships, introducing Javascript'},

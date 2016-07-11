@@ -1,6 +1,6 @@
 import Dispatch = Redux.Dispatch;
 
-export class ActionDispatcher<T> {
+export class ActionDispatcher {
     dispatcher: Dispatch;
 
     constructor(dispatch: Dispatch){
@@ -12,7 +12,10 @@ export class ActionDispatcher<T> {
             .forEach(property => this[property] = prototype[property].bind(this));
     }
 
-    dispatch(actionType: string, actionPayload?: T){
-        this.dispatcher(Object.assign(actionPayload || {}, {type: actionType})); //TODO find a way to not create new object
+    dispatch(actionType: string, payload?){
+        this.dispatcher({
+            type: actionType,
+            payload
+        });
     }
 }

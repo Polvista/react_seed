@@ -1,10 +1,7 @@
 import {ActionDispatcher} from "../../helpers/ActionDispatcher";
 import Dispatch = Redux.Dispatch;
 
-export interface ArticlesAction {
-}
-
-export class ArticlesActions extends ActionDispatcher<ArticlesAction> {
+export class ArticlesActions extends ActionDispatcher {
     constructor(dispatch){
         super(dispatch);
     }

@@ -1,9 +1,4 @@
-export interface ICounterAction {
-    type: string,
-    value?: number
-}
-
-export default function counter(state: number = 0, action: ICounterAction): number {
+export default function counter(state: number = 0, action): number {
     switch (action.type) {
         case 'ADD':
             return state + 1;
@@ -12,7 +7,7 @@ export default function counter(state: number = 0, action: ICounterAction): numb
         case 'RESET':
             return 0;
         case 'SET_VALUE':
-            return action.value;
+            return action.payload;
         default:
             return state;
     }
