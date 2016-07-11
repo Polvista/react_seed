@@ -36,7 +36,7 @@ export class Articles extends React.Component<Props, State> {
 }
 
 interface Props {
-    articles: Array<Article>,
+    articles: Article[],
     shuffle: Function
 }
 
