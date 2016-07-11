@@ -12,13 +12,8 @@ import Dispatch = Redux.Dispatch;
     number: state.counter
 }))
 export class Counter extends React.Component<Props, State> {
-    counterActions: CounterActions;
 
-    constructor(props, context) {
-        super(props, context);
-
-        this.counterActions = new CounterActions(this.props.dispatch);
-    }
+    counterActions = new CounterActions(this.props.dispatch);
 
     render() {
         const { number } = this.props;
@@ -28,7 +23,7 @@ export class Counter extends React.Component<Props, State> {
                 <h4>Hey</h4>
                 <div>
                     <p className="lead">
-                        Counter: {number}
+                        Counter: {this.props.number}
                     </p>
                 </div>
                 <a onClick={this.counterActions.add} className="btn btn-default">lol</a>
