@@ -15,12 +15,14 @@ export class Counter extends React.Component<Props, State> {
 
     counterActions = new CounterActions(this.props.dispatch);
 
+    state = { greeting: 'friend' };
+
     render() {
         const { number } = this.props;
 
         return (
             <div className="counter">
-                <h4>Hey</h4>
+                <h4>Hey {this.state.greeting}</h4>
                 <div>
                     <p className="lead">
                         Counter: {this.props.number}
@@ -45,4 +47,6 @@ interface Props {
     number: number;
 }
 
-interface State {}
+interface State {
+    greeting: string;
+}
