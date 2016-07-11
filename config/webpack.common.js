@@ -37,7 +37,7 @@ module.exports = {
             {
                 test: /\.scss$/,
                 exclude: [/app\.scss$/],
-                loaders: ['css', 'postcss', 'sass']
+                loaders: ['style', 'css', 'postcss', 'sass']
             },
             {
                 test   : /\.(png|jpe?g|gif|svg|woff|woff2|ttf|eot|ico)/,
