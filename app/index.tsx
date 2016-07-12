@@ -13,14 +13,14 @@ import configureStore from './store';
 import routes from './routes';
 
 const store = configureStore();
-const history = syncHistoryWithStore(browserHistory, store);
+//const history = syncHistoryWithStore(browserHistory, store);
 
 class App extends React.Component<{},{}> {
     render(){
         return (
             <Provider store={store}>
                 <div>
-                    <Router history={history} routes={routes}/>
+                    <Router history={browserHistory} routes={routes}/>
                 </div>
             </Provider>
         );

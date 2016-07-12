@@ -1,6 +1,6 @@
 import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
 import { persistState } from 'redux-devtools';
-import rootReducer from './store/rootReducer';
+import { rootReducer } from './store/rootReducer';
 
 /*function getDebugSessionKey() {
     const matches = window.location.href.match(/[?&]debug_session=([^&]+)\b/);
