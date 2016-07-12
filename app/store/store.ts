@@ -35,8 +35,9 @@ export default function configureStore(initialState = {}) {
     );
 
     if (module.hot) {
-        module.hot.accept('./RootManager', () => {
-            const newRootReducer = require('./RootManager').default;
+        module.hot.accept('./rootReducer', () => {
+            console.log('replacing');
+            const newRootReducer = require('./rootReducer').rootReducer;
             store.replaceReducer(newRootReducer);
         });
     }
