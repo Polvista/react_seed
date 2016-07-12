@@ -9,7 +9,7 @@ import * as ReactDOM from 'react-dom';
 import { Router, Route, Link, browserHistory } from 'react-router'
 import { Provider, connect } from 'react-redux';
 import { syncHistoryWithStore } from 'react-router-redux';
-import configureStore from './store';
+import configureStore from './store/store';
 import routes from './routes';
 
 const store = configureStore();
