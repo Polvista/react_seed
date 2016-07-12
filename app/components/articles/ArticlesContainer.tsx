@@ -7,20 +7,33 @@ import Dispatch = Redux.Dispatch;
 import {ArticlesActions} from "./ArticlesActions";
 import {AppState} from "../../store/AppState";
 import {Articles} from "./Articles";
+import Store = Redux.Store;
+import {bindStore} from "../../utils/bindStore";
 
 @connect(
-    (state: AppState) => ({articles: state.articles}),
-    dispatch => ({actions: new ArticlesActions(dispatch)})
+    (state: AppState) => ({articles: state.articles})
 )
+@bindStore
 export default class ArticlesContainer extends React.Component<Props, {}> {
+    articlesActions = new ArticlesActions(this.props.store);
+
+    constructor(props) {
+        super(props);
+
+        this.articlesActions.init();
+    }
+
     render() {
-        return <Articles shuffle={this.props.actions.shuffle}
-                         articles={this.props.articles} />
+        if(this.props.articles) {
+            return <Articles shuffle={this.articlesActions.shuffle} articles={this.props.articles} />
+        }
+
+        return null;
     }
 }
 
 interface Props {
-    actions: ArticlesActions,
-    articles: Article[]
+    articles: Article[],
+    store: Store
 }
 
