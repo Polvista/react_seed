@@ -1,5 +1,5 @@
-import counter from './components/counter/counterReducer';
-import {articlesReducer} from './components/articles/articlesReducer';
+import counter from './../components/counter/counterReducer';
+import {articlesReducer} from './../components/articles/articlesReducer';
 import {createStore, combineReducers} from 'redux';
 import { routerReducer } from 'react-router-redux';
 

@@ -1,6 +1,6 @@
 import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
 import { persistState } from 'redux-devtools';
-import rootReducer from './reducers';
+import rootReducer from './store/rootReducer';
 
 /*function getDebugSessionKey() {
     const matches = window.location.href.match(/[?&]debug_session=([^&]+)\b/);
@@ -40,8 +40,8 @@ export default function configureStore(initialState = {}) {
     );
 
     if (module.hot) {
-        module.hot.accept('./reducers', () => {
-            const newRootReducer = require('./reducers').default;
+        module.hot.accept('./store/rootReducer', () => {
+            const newRootReducer = require('./store/rootReducer').default;
             store.replaceReducer(newRootReducer);
         });
     }
