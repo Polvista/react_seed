@@ -3,7 +3,7 @@ import './counter.scss';
 import * as React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router';
-import {AppState} from "../../models";
+import {AppState} from "../../store/AppState";
 import {CounterActions} from "./CounterActions";
 import Dispatch = Redux.Dispatch;
 import { bindStore } from "../../utils/bindStore";

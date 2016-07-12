@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import {Article} from "./models";
 import Dispatch = Redux.Dispatch;
 import {ArticlesActions} from "./ArticlesActions";
-import {AppState} from "../../models";
+import {AppState} from "../../store/AppState";
 import {Articles} from "./Articles";
 
 @connect(
