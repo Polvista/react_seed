@@ -7,20 +7,12 @@ export class CounterActions extends ActionDispatcher {
         super(store);
     }
 
-    add() {
-        this.dispatch('ADD');
-    }
+    add = () => this.dispatch('ADD');
 
-    remove(){
-        this.dispatch('REMOVE');
-    }
+    remove = () => this.dispatch('REMOVE');
 
-    reset () {
-        this.dispatch('RESET');
-    }
+    reset = () => this.dispatch('RESET');
 
-    setValue(value) {
-        this.dispatch('SET_VALUE', value);
-    }
+    setValue = (value) => this.dispatch('SET_VALUE', value);
 
 }

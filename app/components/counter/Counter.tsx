@@ -21,16 +21,14 @@ export class Counter extends React.Component<Props, State> {
     state = { greeting: 'friend' };
 
     render() {
-        const { number, store } = this.props;
-
-        console.log(store);
+        const { number } = this.props;
 
         return (
             <div className="counter">
                 <h4>Hey {this.state.greeting}</h4>
                 <div>
                     <p className="lead">
-                        Counter: {this.props.number}
+                        Counter: {number}
                     </p>
                 </div>
                 <a onClick={this.counterActions.add} className="btn btn-default">lol</a>
