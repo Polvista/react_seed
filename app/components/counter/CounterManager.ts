@@ -3,31 +3,31 @@ import {CounterActions} from "./CounterActions";
 
 export class CounterManager {
 
-    @useReturnValue()
+    @useReturnValue
     @action(CounterActions.INIT)
     init() {
         return 0;
     }
 
-    @useReturnValue()
+    @useReturnValue
     @action(CounterActions.ADD)
     add(count) {
         return count + 1;
     }
 
-    @useReturnValue()
+    @useReturnValue
     @action(CounterActions.REMOVE)
     remove(count) {
         return count - 1;
     }
 
-    @useReturnValue()
+    @useReturnValue
     @action(CounterActions.RESET)
     reset(count) {
         return 0;
     }
 
-    @useReturnValue()
+    @useReturnValue
     @action(CounterActions.SET_VALUE)
     setValue(count, value: number) {
         return value;
