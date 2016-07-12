@@ -1,5 +1,5 @@
 import { createSelector } from 'reselect';
-import { AppState } from "./../AppState";add
+import { AppState } from "./../AppState";
 const Immutable = require('seamless-immutable');
 
 export function selector<Output>(...params: any[]): (state: AppState) => Output {
