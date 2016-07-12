@@ -1,6 +1,7 @@
 import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
 import { persistState } from 'redux-devtools';
 import { rootReducer } from './store/rootReducer';
+import { actionTypesSupport } from "./store/middlewares/actionTypesSupport";
 
 /*function getDebugSessionKey() {
     const matches = window.location.href.match(/[?&]debug_session=([^&]+)\b/);
@@ -33,10 +34,16 @@ export default function configureStore(initialState = {}) {
             //window.devToolsExtension ? window.devToolsExtension() : f => f
         );
 
+    const Immutable = require('seamless-immutable');
+    const enchacers = <() => any> compose(
+        applyMiddleware(actionTypesSupport),
+        window.devToolsExtension ? window.devToolsExtension() : f => f
+    );
+
     const store = createStore(
         rootReducer,
-        initialState,
-        window.devToolsExtension ? window.devToolsExtension() : f => f
+        Immutable(initialState),
+        enchacers
     );
 
     if (module.hot) {

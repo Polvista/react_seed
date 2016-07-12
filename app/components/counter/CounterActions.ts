@@ -4,6 +4,7 @@ import {ActionTypeCreator} from "../../store/actions/ActionTypeCreator";
 
 export class CounterActions extends ActionCreator {
     private static typeCreator = new ActionTypeCreator('COUNTER');
+    static INIT = CounterActions.typeCreator.type('INIT');
     static ADD = CounterActions.typeCreator.type('ADD');
     static REMOVE = CounterActions.typeCreator.type('REMOVE');
     static RESET = CounterActions.typeCreator.type('RESET');
@@ -12,6 +13,8 @@ export class CounterActions extends ActionCreator {
     constructor(store: Store) {
         super(store);
     }
+
+    init = () => this.dispatch(CounterActions.INIT);
 
     add = () => this.dispatch(CounterActions.ADD);
 

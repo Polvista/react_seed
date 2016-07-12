@@ -10,12 +10,10 @@ import { bindStore } from "../../utils/bindStore";
 import Store = Redux.Store;
 
 
-const StatelessGreeting = (props: { greeting: string; store?: Store }) => {
-    console.log(props.store);
-    return (<div className="stateless-greeting">
+const StatelessGreeting = (props: { greeting: string; store?: Store }) =>
+    <div className="stateless-greeting">
         Stateless greeting: {props.greeting}
-    </div>)
-};
+    </div>;
 
 
 @connect((state: AppState) => ({
@@ -27,6 +25,12 @@ export class Counter extends React.Component<Props, State> {
     counterActions = new CounterActions(this.props.store);
 
     state = { greeting: 'friend' };
+
+    constructor(props) {
+        super(props);
+
+        this.counterActions.init();
+    }
 
     render() {
         const { number } = this.props;

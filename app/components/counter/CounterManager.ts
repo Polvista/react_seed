@@ -4,6 +4,12 @@ import {CounterActions} from "./CounterActions";
 export class CounterManager {
 
     @useReturnValue()
+    @action(CounterActions.INIT)
+    init() {
+        return 0;
+    }
+
+    @useReturnValue()
     @action(CounterActions.ADD)
     add(count) {
         return count + 1;
