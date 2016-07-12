@@ -1,10 +1,10 @@
-import Dispatch = Redux.Dispatch;
+import Store = Redux.Store;
 
 export class ActionDispatcher {
-    dispatcher: Dispatch;
+    protected store: Store;
 
-    constructor(dispatch: Dispatch){
-        this.dispatcher = dispatch;
+    constructor(store: Store){
+        this.store = store;
 
         const prototype = Object.getPrototypeOf(this);
         Object.getOwnPropertyNames(prototype)
@@ -13,7 +13,7 @@ export class ActionDispatcher {
     }
 
     dispatch(actionType: string, payload?){
-        this.dispatcher({
+        this.store.dispatch({
             type: actionType,
             payload
         });
