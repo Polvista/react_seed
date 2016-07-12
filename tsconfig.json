@@ -1,8 +1,12 @@
 {
   "compilerOptions": {
     "target": "ES6",
+    "sourceMap": true,
+    "removeComments": true,
     "jsx": "react",
     "experimentalDecorators": true
   },
-  "exclude": ["node_modules"]
+  "exclude": [
+    "node_modules"
+  ]
 }

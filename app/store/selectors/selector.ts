@@ -17,9 +17,7 @@ export function selector<Output>(...params: any[]): (state: AppState) => Output 
         if(Immutable.isImmutable(state)) {
             return selectorWithMemoization(state);
         } else {
-            console.log('use plain selector');
-            const result =  plainSelector(state);
-            console.log('result: ', result);
+            const result = plainSelector(state);
             return result;
         }
     };
@@ -45,7 +43,7 @@ export function nullSafe(func: Function) {
 }
 
 function getPlainSelector<Output>(...params: any[]): (state: AppState) => Output {
-    const combiner = params.pop();
+    const combiner: any = params.pop();
 
     return (state: AppState): Output => {
         const combinerParams: any[] = params.map(selector => selector(state));

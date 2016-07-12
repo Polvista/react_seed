@@ -1,7 +1,7 @@
-import {ActionDispatcher} from "../../helpers/ActionDispatcher";
 import Store = Redux.Store;
+import {ActionCreator} from "../../store/actions/ActionCreator";
 
-export class CounterActions extends ActionDispatcher {
+export class CounterActions extends ActionCreator {
 
     constructor(store: Store) {
         super(store);
