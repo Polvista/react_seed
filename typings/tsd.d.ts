@@ -9,4 +9,3 @@
 /// <reference path="react-router-redux/react-router-redux.d.ts" />
 /// <reference path="redux/redux.d.ts" />
 /// <reference path="requirejs/require.d.ts" />
-/// <reference path="reselect/reselect.d.ts" />

@@ -1,4 +1,5 @@
 /// <reference path="axios/axios.d.ts" />
+/// <reference path="reselect/reselect.d.ts" />
 
 //declare const Proxy;
 //declare const module;
