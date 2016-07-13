@@ -3,7 +3,7 @@ export interface ActionType {
 }
 
 export function isActionType(object: any): object is ActionType {
-    return 'asString' in object;
+    return typeof object !== "string" && 'asString' in object;
 }
 
 export function getActionTypeString(actionType: string | ActionType): string {

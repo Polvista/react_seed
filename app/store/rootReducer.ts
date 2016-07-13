@@ -1,23 +1,10 @@
-/*
-import counter from './../components/counter/counterReducer';
-import {articlesReducer} from './../components/articles/articlesReducer';
-import {createStore, combineReducers} from 'redux';
-import { routerReducer } from 'react-router-redux';
-
-const rootReducer = combineReducers({
-    counter,
-    articles: articlesReducer,
-    routing: routerReducer
-});
-
-export default rootReducer;*/
-
 import {AppState} from "./AppState";
 import {MutationManager} from "./mutations/MutationManager";
 import {MutationManagerFactory} from "./mutations/MutationManagerFactory";
 import {Action} from "./actions/Action";
 import {RootManager} from "./RootManager";
 import {PARTS_MANAGERS_PROPERTY, InnerManagerDescription} from "./managers/manager";
+import {REDUCERS_PROPERTY, ReducerDescription} from "./managers/reducer";
 import {ACTIONS_MAP_PROPERTY, RETURN_VALUES_METHODS_PROPERTY} from "./managers/action";
 import {ActionType, getActionTypeString} from "./actions/ActionType";
 import {ArrayItemManagerDescription, ARRAY_ITEM_MANAGERS_PROPERTY} from "./managers/arrayItemManager";
@@ -72,6 +59,12 @@ function manageAction(statePart: any, action: Action, state: AppState, manager: 
                 }
             }
         });
+
+        const reducersDescription: ReducerDescription[] = manager[REDUCERS_PROPERTY] || [];
+        reducersDescription.forEach(description => {
+            statePart[description.selector] = description.reducer(statePart[description.selector], description.actionMapper(action));
+        });
+
     }
 
 }

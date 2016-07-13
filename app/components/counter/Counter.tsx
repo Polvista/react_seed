@@ -26,9 +26,7 @@ export class Counter extends React.Component<Props, State> {
 
     state = { greeting: 'friend' };
 
-    constructor(props) {
-        super(props);
-
+    componentWillMount() {
         this.counterActions.init();
     }
 
