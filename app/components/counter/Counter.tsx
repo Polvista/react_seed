@@ -10,6 +10,7 @@ import { bindStore } from "../../utils/bindStore";
 import { withRouter } from "../../utils/withRouter";
 import Store = Redux.Store;
 import {RouterService} from "../../routes/RouterService";
+import * as axios from 'axios';
 
 
 const StatelessGreeting = (props: { greeting: string; store?: Store }) =>
