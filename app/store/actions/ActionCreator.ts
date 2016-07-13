@@ -1,6 +1,7 @@
 import {ActionType} from "./ActionType";
 import Store = Redux.Store;
 import {AppState} from "../AppState";
+import { Promise } from 'axios';
 
 export class ActionCreator {
 
@@ -16,6 +17,15 @@ export class ActionCreator {
             type: actionType,
             payload
         });
+    }
+
+    dispatchRequest(actionType: string | ActionType, promise: Promise, payload?: any): Promise  {
+        this.store.dispatch({
+            type: actionType,
+            promise,
+            payload
+        });
+        return promise;
     }
 
     getState(): AppState {

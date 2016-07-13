@@ -1,6 +1,7 @@
 import Store = Redux.Store;
 import {ActionCreator} from "../../store/actions/ActionCreator";
 import {ActionTypeCreator} from "../../store/actions/ActionTypeCreator";
+import * as axios from 'axios';
 
 export class CounterActions extends ActionCreator {
     private static typeCreator = new ActionTypeCreator('COUNTER');
@@ -10,6 +11,7 @@ export class CounterActions extends ActionCreator {
     static RESET = CounterActions.typeCreator.type('RESET');
     static SET_VALUE = CounterActions.typeCreator.type('SET_VALUE');
     static CLEAR = CounterActions.typeCreator.type('CLEAR');
+    static LOAD = CounterActions.typeCreator.request('LOAD');
 
     constructor(store: Store) {
         super(store);
@@ -20,6 +22,16 @@ export class CounterActions extends ActionCreator {
             this.dispatch(CounterActions.INIT);
         }
     };
+
+    load() {
+        const request = axios.get('/123')
+            .catch(error => Promise.reject({
+                id: 11,
+                error
+            }));
+
+        this.dispatchRequest(CounterActions.LOAD, request, {id: 11});
+    }
 
     add = () => this.dispatch(CounterActions.ADD);
 

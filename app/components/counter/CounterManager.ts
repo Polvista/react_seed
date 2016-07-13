@@ -39,4 +39,14 @@ export class CounterManager {
         return null;
     }
 
+    @action(CounterActions.LOAD)
+    loading(count, payload) {
+        console.log('loading', payload);
+    }
+
+    @action(CounterActions.LOAD.ERROR)
+    loadError(count, payload) {
+        console.log('error', payload);
+    }
+
 }
