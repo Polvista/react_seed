@@ -1,3 +1,5 @@
+/// <reference path="axios/axios.d.ts" />
+
 //declare const Proxy;
 //declare const module;
 declare const process: NodeJSProcess;
