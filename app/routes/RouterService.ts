@@ -11,9 +11,6 @@ export class RouterService {
     constructor(store: Store, router: any) {
 
         let unsub = router.listenBefore((loc: Location) => {
-            console.log(loc);
-            console.log('state', store.getState().routing.locationBeforeTransitions.pathname);
-
             if(this.getFullUrl(loc) != this.getFullUrl(store.getState().routing.locationBeforeTransitions)) {
                 this.changeListeners.forEach((listener: ChangeListener) => listener((<AppState>store.getState()).routing));
                 unsub();
