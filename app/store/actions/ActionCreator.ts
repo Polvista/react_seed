@@ -1,5 +1,6 @@
 import {ActionType} from "./ActionType";
 import Store = Redux.Store;
+import {AppState} from "../AppState";
 
 export class ActionCreator {
 
@@ -15,6 +16,10 @@ export class ActionCreator {
             type: actionType,
             payload
         });
+    }
+
+    getState(): AppState {
+        return this.store.getState();
     }
 
 }

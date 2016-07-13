@@ -9,12 +9,17 @@ export class CounterActions extends ActionCreator {
     static REMOVE = CounterActions.typeCreator.type('REMOVE');
     static RESET = CounterActions.typeCreator.type('RESET');
     static SET_VALUE = CounterActions.typeCreator.type('SET_VALUE');
+    static CLEAR = CounterActions.typeCreator.type('CLEAR');
 
     constructor(store: Store) {
         super(store);
     }
 
-    init = () => this.dispatch(CounterActions.INIT);
+    init = () => {
+        if(this.getState().counter == null) {
+            this.dispatch(CounterActions.INIT);
+        }
+    };
 
     add = () => this.dispatch(CounterActions.ADD);
 
@@ -23,5 +28,7 @@ export class CounterActions extends ActionCreator {
     reset = () => this.dispatch(CounterActions.RESET);
 
     setValue = (value) => this.dispatch(CounterActions.SET_VALUE, value);
+
+    clear = () => this.dispatch(CounterActions.CLEAR);
 
 }

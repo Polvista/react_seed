@@ -33,4 +33,10 @@ export class CounterManager {
         return value;
     }
 
+    @useReturnValue
+    @action(CounterActions.CLEAR)
+    clear() {
+        return null;
+    }
+
 }
