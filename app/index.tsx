@@ -19,9 +19,7 @@ class App extends React.Component<{},{}> {
     render(){
         return (
             <Provider store={store}>
-                <div>
-                    <Router history={history} routes={routes}/>
-                </div>
+                <Router history={history} routes={routes}/>
             </Provider>
         );
     }
