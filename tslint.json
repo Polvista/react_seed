@@ -1,8 +1,6 @@
 {
     "rules": {
         "class-name": true,
-        "no-eval": true,
-
-        "use-life-cycle-interface": true
+        "no-eval": true
     }
 }
