@@ -13,18 +13,19 @@ import {RouterService} from "../../routes/RouterService";
 import * as axios from 'axios';
 
 
-const StatelessGreeting = (props: { greeting: string; store?: Store }) =>
+const StatelessGreeting = (props: { greeting: string; store?: Store<AppState> }) =>
     <div className="stateless-greeting">
         Stateless greeting: {props.greeting}
     </div>;
 
 
-@connect((state: AppState) => ({
+const mapStateToProps = (state: AppState) => ({
     number: state.counter
-}))
+});
+
 @bindStore
 @withRouter
-export class Counter extends React.Component<Props, State> {
+export class CounterView extends React.Component<Props, State> {
 
     counterActions = new CounterActions(this.props.store);
     routerService = new RouterService(this.props.store, this.props.router);
@@ -67,11 +68,11 @@ export class Counter extends React.Component<Props, State> {
 
 }
 
+export const Counter = connect(mapStateToProps)(CounterView);
 
 interface Props {
-    dispatch: Dispatch;
     number: number;
-    store: Store;
+    store: Store<AppState>;
     router: any;
 }
 

@@ -1,5 +1,6 @@
 import * as React from 'react';
 import Store = Redux.Store;
+import {AppState} from "../store/AppState";
 
 export function bindStore(OrigComponent: any): typeof OrigComponent {
 
@@ -9,7 +10,7 @@ export function bindStore(OrigComponent: any): typeof OrigComponent {
         };
 
         context: {
-            store: Store
+            store: Store<AppState>
         };
 
         render() {

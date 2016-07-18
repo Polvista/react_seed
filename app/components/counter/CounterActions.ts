@@ -2,6 +2,7 @@ import Store = Redux.Store;
 import {ActionCreator} from "../../store/actions/ActionCreator";
 import {ActionTypeCreator} from "../../store/actions/ActionTypeCreator";
 import * as axios from 'axios';
+import {AppState} from "../../store/AppState";
 
 export class CounterActions extends ActionCreator {
     private static typeCreator = new ActionTypeCreator('COUNTER');
@@ -13,7 +14,7 @@ export class CounterActions extends ActionCreator {
     static CLEAR = CounterActions.typeCreator.type('CLEAR');
     static LOAD = CounterActions.typeCreator.request('LOAD');
 
-    constructor(store: Store) {
+    constructor(store: Store<AppState>) {
         super(store);
     }
 

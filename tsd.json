@@ -6,16 +6,16 @@
   "bundle": "typings/tsd.d.ts",
   "installed": {
     "react/react.d.ts": {
-      "commit": "4ba57e605bd71bf7248de65aac0b4f50e3eb1c9e"
+      "commit": "95eb7b2527a28281cdbf480c0560744bc5190465"
     },
     "react/react-dom.d.ts": {
-      "commit": "4ba57e605bd71bf7248de65aac0b4f50e3eb1c9e"
+      "commit": "95eb7b2527a28281cdbf480c0560744bc5190465"
     },
     "react-router/react-router.d.ts": {
-      "commit": "4ba57e605bd71bf7248de65aac0b4f50e3eb1c9e"
+      "commit": "95eb7b2527a28281cdbf480c0560744bc5190465"
     },
     "react-router/history.d.ts": {
-      "commit": "4ba57e605bd71bf7248de65aac0b4f50e3eb1c9e"
+      "commit": "95eb7b2527a28281cdbf480c0560744bc5190465"
     },
     "redux-devtools/redux-devtools.d.ts": {
       "commit": "4ba57e605bd71bf7248de65aac0b4f50e3eb1c9e"
@@ -27,13 +27,19 @@
       "commit": "4ba57e605bd71bf7248de65aac0b4f50e3eb1c9e"
     },
     "react-router-redux/react-router-redux.d.ts": {
-      "commit": "4ba57e605bd71bf7248de65aac0b4f50e3eb1c9e"
+      "commit": "95eb7b2527a28281cdbf480c0560744bc5190465"
     },
     "redux/redux.d.ts": {
-      "commit": "4ba57e605bd71bf7248de65aac0b4f50e3eb1c9e"
+      "commit": "95eb7b2527a28281cdbf480c0560744bc5190465"
     },
     "requirejs/require.d.ts": {
       "commit": "24635d778d7ff1f7665f04239563b2ef2684ee1c"
+    },
+    "redux-form/redux-form.d.ts": {
+      "commit": "95eb7b2527a28281cdbf480c0560744bc5190465"
+    },
+    "react-redux/react-redux.d.ts": {
+      "commit": "95eb7b2527a28281cdbf480c0560744bc5190465"
     }
   }
 }

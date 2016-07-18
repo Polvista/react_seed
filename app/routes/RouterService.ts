@@ -8,7 +8,7 @@ import {Location} from "./AppRoute";
 export class RouterService {
     private changeListeners: ChangeListener[] = [];
 
-    constructor(store: Store, router: any) {
+    constructor(store: Store<AppState>, router: any) {
 
         let unsub = router.listenBefore((loc: Location) => {
             if(this.getFullUrl(loc) != this.getFullUrl(store.getState().routing.locationBeforeTransitions)) {

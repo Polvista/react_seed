@@ -10,11 +10,10 @@ import {Articles} from "./Articles";
 import Store = Redux.Store;
 import {bindStore} from "../../utils/bindStore";
 
-@connect(
-    (state: AppState) => ({articles: state.articles})
-)
+const mapStateToProps = (state: AppState) => ({articles: state.articles});
+
 @bindStore
-export default class ArticlesContainer extends React.Component<Props, {}> {
+class ArticlesContainerView extends React.Component<Props, {}> {
     articlesActions = new ArticlesActions(this.props.store);
 
     constructor(props) {
@@ -32,8 +31,10 @@ export default class ArticlesContainer extends React.Component<Props, {}> {
     }
 }
 
+export const ArticlesContainer = connect(mapStateToProps)(ArticlesContainerView);
+
 interface Props {
     articles: Article[],
-    store: Store
+    store: Store<AppState>
 }
 

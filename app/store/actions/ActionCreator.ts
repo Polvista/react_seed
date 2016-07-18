@@ -5,7 +5,7 @@ import { Promise } from 'axios';
 
 export class ActionCreator {
 
-    constructor(protected store: Store){
+    constructor(protected store: Store<AppState>){
         const prototype = Object.getPrototypeOf(this);
         Object.getOwnPropertyNames(prototype)
             .filter(property => typeof prototype[property] === 'function' && property != 'constructor')
@@ -13,14 +13,14 @@ export class ActionCreator {
     }
 
     dispatch(actionType: string | ActionType, payload?: any) {
-        this.store.dispatch({
+        this.store.dispatch(<any> {
             type: actionType,
             payload
         });
     }
 
     dispatchRequest(actionType: string | ActionType, promise: Promise, payload?: any): Promise  {
-        this.store.dispatch({
+        this.store.dispatch(<any> {
             type: actionType,
             promise,
             payload
